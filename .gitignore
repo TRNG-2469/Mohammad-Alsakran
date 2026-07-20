@@ -11,3 +11,6 @@ build/
 # System metadata
 .DS_Store
 Thumbs.db
+
+
+*.class
