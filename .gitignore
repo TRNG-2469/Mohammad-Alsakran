@@ -7,10 +7,10 @@ out/
 *.class
 bin/
 build/
+target/
 
 # System metadata
 .DS_Store
 Thumbs.db
 
 
-*.class
