@@ -1,0 +1,19 @@
+package Week1.Wedensday.OOPDesignExercise;
+
+public abstract class Vehicle {
+
+    protected String model;
+    protected double speed;
+
+    public Vehicle(String model) {
+        this.model = model;
+        this.speed = 0.0;
+    }
+
+    public abstract  void start();
+    public void stop(){
+        this.speed = 0.0;
+        System.out.println("Engine stops");
+    }
+
+}
