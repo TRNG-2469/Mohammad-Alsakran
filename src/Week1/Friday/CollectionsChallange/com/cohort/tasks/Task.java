@@ -11,7 +11,7 @@ public class Task {
         this.isCompelted = false;
     }
 
-    public String getTaskid() {
+    public String getTaskId() {
         return taskid;
     }
 
@@ -45,4 +45,6 @@ public class Task {
                 ", isCompelted=" + isCompelted +
                 '}';
     }
+
+
 }

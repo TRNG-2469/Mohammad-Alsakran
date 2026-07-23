@@ -2,31 +2,70 @@ package Week1.Friday.CollectionsChallange.com.cohort.tasks;
 
 import java.util.*;
 
+/**
+ * TaskManager manages an ordered collection of Task objects while enforcing
+ * uniqueness constraints on task titles and task IDs.
+ *
+ * Refactor notes:
+ * - Collections are declared final to emphasize immutability of the references.
+ * - Input validation is performed for null/empty task, id and title.
+ * - Duplicate IDs are rejected to avoid accidental overwrite in the lookup map.
+ */
 public class TaskManager {
-    private List<Task> allTasks = new ArrayList<>();
-    private Set<String> uniqueTitles = new HashSet<>();
-    private Map<String, Task> taskLookup = new HashMap<>();
+    private final List<Task> allTasks = new ArrayList<>();
+    private final Set<String> uniqueTitles = new HashSet<>();
+    private final Map<String, Task> taskLookup = new HashMap<>();
 
-
+    /**
+     * Adds a task to the manager.
+     * Returns true when the task is accepted; false when rejected due to validation or duplication.
+     */
     public boolean addTask(Task task) {
-        if (uniqueTitles.contains(task.getTitle())) {
-            System.out.println("Duplicate task blocked!");
+        if (task == null) {
+            System.out.println("Cannot add null task.");
+            return false;
+        }
+
+        String id = task.getTaskId();
+        String title = task.getTitle();
+
+        if (id == null || id.trim().isEmpty()) {
+            System.out.println("Invalid task id.");
+            return false;
+        }
+        if (title == null || title.trim().isEmpty()) {
+            System.out.println("Invalid task title.");
+            return false;
+        }
+
+        if (uniqueTitles.contains(title)) {
+            System.out.println("Duplicate task title blocked!");
+            return false;
+        }
+
+        if (taskLookup.containsKey(id)) {
+            System.out.println("Duplicate task id blocked!");
             return false;
         }
 
         allTasks.add(task);
-        uniqueTitles.add(task.getTitle());
-        taskLookup.put(task.getTaskid(), task);
+        uniqueTitles.add(title);
+        taskLookup.put(id, task);
 
         return true;
-
     }
 
-
+    /**
+     * Lookup task by id.
+     */
     public Task getTaskById(String id){
+        if (id == null) { return null; }
         return taskLookup.get(id);
     }
 
+    /**
+     * Print all tasks in insertion order. Intended for demo/training purposes.
+     */
     public void printRoster(){
         for(Task task : allTasks){
             System.out.println(task);
