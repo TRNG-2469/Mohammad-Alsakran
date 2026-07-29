@@ -58,5 +58,6 @@ public class CalculatorTest {
     @Test
     public void testSqrtNegative(){
         assertThrows(ArithmeticException.class, () -> calculator.sqrt(-1));
+
     }
 }
