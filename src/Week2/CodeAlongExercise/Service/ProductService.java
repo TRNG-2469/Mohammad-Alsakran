@@ -1,11 +1,10 @@
-package Week2.Thursday.DAO;
+package Week2.CodeAlongExercise.Service;
 
 import week2.Wedensday.CodeAlongExercise.model.product;
 
 import java.util.List;
 
-public interface ProductDAO {
-    // CRUD
+public interface ProductService {
 
     void createProduct(product product);
     void updateProduct(product product);
@@ -14,5 +13,4 @@ public interface ProductDAO {
     // Read All, Read One
     product findById(int id);
     List<product> findAll();
-
 }

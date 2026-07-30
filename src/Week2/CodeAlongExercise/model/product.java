@@ -1,10 +1,12 @@
-package Week2.Thursday.model;
+package Week2.CodeAlongExercise.model;
 
 public class product {
     private int id;
     private String name;
     private double price;
 
+    public product() {
+    }
 
     public product(int id, String name, double price) {
         this.id = id;
@@ -34,5 +36,14 @@ public class product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

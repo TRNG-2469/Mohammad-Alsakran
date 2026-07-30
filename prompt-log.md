@@ -154,3 +154,53 @@ public class CalculatorTest {
 
     
 **Notes:**  Learning mode instructions did not appear to influence this output. Copilot generated test coverage that passed all assertions on the first run, including @BeforeEach setup, delta-based floating point comparison for sqrt, and exception tests for divide by zero and negative sqrt. One edge case I noticed was missing: no test for multiply with one positive and one negative number. Accepted the output after reviewing and running the tests successfully.
+
+
+
+
+## Week 1 - Wedensday
+
+### Exercise: String-manipulation-exercise
+
+**Prompt:** IDE Auto suggested the block of code when I typed the signiture for countVowels
+
+**Output:** public static int countVowels(String s){
+        if (s == null) {
+            return 0;
+        }
+        s = s.toLowerCase();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+**Notes:** Initially approached this with a HashSet style solution to store vowels for O(1) lookup, similar to a LeetCode optimization pattern. After reviewing the exercise requirements, the spec only asks for a count using primitive loops and charAt() with no mention of data structure requirements. The IDE suggestion used a simple conditional chain which technically satisfies the constraints. Accepted it after verifying it matched the manual approach requirements. The experience highlights a risk: IDE completions can silently bypass the learning objective if not audited before accepting.
+```
+## Week 2 - Thursday
+
+
+### Exercise: finishing up CRUD methods for productDAO and ProductService
+
+**Prompt:** implement craeteProduct method for ProductDAO
+**Output:** 
+
+@Override
+public void createProduct(product product) {
+    String insertSQL = "INSERT INTO product (name, price) VALUES (?, ?)";
+    try (Connection connection = ConnectionFactory.getInstance().getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+        preparedStatement.setString(1, product.getName());
+        preparedStatement.setDouble(2, product.getPrice());
+        preparedStatement.executeUpdate();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+}
+
+    
+**Notes:** It created the method mostly correctly, but it neglected to pass in and initilize product_id because it assumed that the DB is configuered to autoincrement the PK, I had to fix the result manually.
