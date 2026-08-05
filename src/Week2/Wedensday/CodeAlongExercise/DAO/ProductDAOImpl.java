@@ -1,7 +1,7 @@
-package Week2.CodeAlongExercise.DAO;
+package Week2.Wedensday.CodeAlongExercise.DAO;
 
-import week2.Wedensday.CodeAlongExercise.model.Employee;
-import week2.Wedensday.CodeAlongExercise.utils.ConnectionFactory;
+import Week2.Wedensday.CodeAlongExercise.model.product;
+import Week2.Wedensday.CodeAlongExercise.utils.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,33 +10,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDAOImpl implements EmployeeDAO {
+public class ProductDAOImpl implements ProductDAO {
 
 
     @Override
-    public void createEmployee(Employee employee) {
-        String insertSQL = "INSERT INTO employee (employee_id, name, salary) VALUES (?, ?, ?)";
-        try (Connection connection = ConnectionFactory.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
-            preparedStatement.setInt(1, employee.getId());
-            preparedStatement.setString(2, employee.getName());
-            preparedStatement.setDouble(3, employee.getSalary());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void createProduct(product product) {
+    String insertSQL = "INSERT INTO product (product_id, name, price) VALUES (?, ?, ?)";
+    try (Connection connection = ConnectionFactory.getInstance().getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+        preparedStatement.setInt(1, product.getId());
+        preparedStatement.setString(2, product.getName());
+        preparedStatement.setDouble(3, product.getPrice());
+        preparedStatement.executeUpdate();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
     }
 
 
     @Override
-    public void updateEmployee(Employee employee) {
-        String updateSQL = "UPDATE employee SET name = ?, salary = ? WHERE employee_id = ?";
+    public void updateProduct(product product) {
+        String updateSQL = "UPDATE product SET name = ?, price = ? WHERE product_id = ?";
         try(Connection connection = ConnectionFactory.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(updateSQL);
         ) {
-            preparedStatement.setString(1, employee.getName());
-            preparedStatement.setDouble(2, employee.getSalary());
-            preparedStatement.setInt(3, employee.getId());
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setDouble(2, product.getPrice());
+            preparedStatement.setInt(3, product.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -45,8 +45,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
-    public void deleteEmployee(int id) {
-        String deleteSQL = "DELETE FROM employee WHERE employee_id = ?";
+    public void deleteProduct(int id) {
+        String deleteSQL = "DELETE FROM product WHERE product_id = ?";
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
             preparedStatement.setInt(1, id);
@@ -58,17 +58,17 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
-    public Employee findById(int id) {
-        String selectSQL = "SELECT * FROM employee WHERE employee_id = ?";
+    public product findById(int id) {
+        String selectSQL = "SELECT * FROM product WHERE product_id = ?";
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                return new Employee(
-                        rs.getInt("employee_id"),
+                return new product(
+                        rs.getInt("product_id"),
                         rs.getString("name"),
-                        rs.getDouble("salary")
+                        rs.getDouble("price")
                 );
             }
             return null;
@@ -80,20 +80,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
-    public List<Employee> findAll() {
-        List<Employee> employees = new ArrayList<>();
-        String selectSQL = "SELECT * FROM employee";
+    public List<product> findAll() {
+        List<product> products = new ArrayList<>();
+        String selectSQL = "SELECT * FROM product";
         try (Connection connection = ConnectionFactory.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectSQL)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                employees.add(new Employee(
-                        rs.getInt("employee_id"),
+                products.add(new product(
+                        rs.getInt("product_id"),
                         rs.getString("name"),
-                        rs.getDouble("salary")
+                        rs.getDouble("price")
                 ));
             }
-            return employees;
+            return products;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

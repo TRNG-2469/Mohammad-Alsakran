@@ -1,10 +1,10 @@
-package Week2.CodeAlongExercise.DAO;
+package Week2.Wedensday.CodeAlongExercise.Service;
 
-import week2.Wedensday.CodeAlongExercise.model.Employee;
+import Week2.Wedensday.CodeAlongExercise.model.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     void createEmployee(Employee employee);
     void updateEmployee(Employee employee);

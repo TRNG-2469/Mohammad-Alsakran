@@ -1,4 +1,4 @@
-package Week2.CodeAlongExercise.Service;
+package Week2.Wedensday.CodeAlongExercise.Service;
 
 import week2.Wedensday.CodeAlongExercise.DAO.ProductDAO;
 import week2.Wedensday.CodeAlongExercise.DAO.ProductDAOImpl;

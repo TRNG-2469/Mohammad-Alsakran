@@ -1,6 +1,6 @@
 package Exercises;
 
-import Week2.Monday.Exercises.StringCalculator;
+import week2.Monday.Exercises.StringCalculator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

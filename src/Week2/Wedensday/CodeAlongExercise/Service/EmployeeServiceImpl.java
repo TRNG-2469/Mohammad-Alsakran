@@ -1,9 +1,9 @@
-package Week2.CodeAlongExercise.Service;
+package Week2.Wedensday.CodeAlongExercise.Service;
 
-import week2.Wedensday.CodeAlongExercise.DAO.EmployeeDAO;
-import week2.Wedensday.CodeAlongExercise.DAO.EmployeeDAOImpl;
-import week2.Wedensday.CodeAlongExercise.Service.EmployeeService;
-import week2.Wedensday.CodeAlongExercise.model.Employee;
+import Week2.Wedensday.CodeAlongExercise.DAO.EmployeeDAO;
+import Week2.Wedensday.CodeAlongExercise.DAO.EmployeeDAOImpl;
+import Week2.Wedensday.CodeAlongExercise.Service.EmployeeService;
+import Week2.Wedensday.CodeAlongExercise.model.Employee;
 
 import java.util.List;
 

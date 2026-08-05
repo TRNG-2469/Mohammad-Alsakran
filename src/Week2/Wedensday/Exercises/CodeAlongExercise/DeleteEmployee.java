@@ -1,4 +1,4 @@
-package Week2.Wedensday.Exercises.CodeAlongExercise;
+package week2.Wedensday.Exercises.CodeAlongExercise;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

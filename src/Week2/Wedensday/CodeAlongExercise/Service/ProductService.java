@@ -1,6 +1,6 @@
-package Week2.CodeAlongExercise.Service;
+package Week2.Wedensday.CodeAlongExercise.Service;
 
-import week2.Wedensday.CodeAlongExercise.model.product;
+import Week2.Wedensday.CodeAlongExercise.model.product;
 
 import java.util.List;
 

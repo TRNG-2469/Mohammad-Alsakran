@@ -1,4 +1,4 @@
-package Week2.CodeAlongExercise.model;
+package Week2.Wedensday.CodeAlongExercise.model;
 
 public class product {
     private int id;

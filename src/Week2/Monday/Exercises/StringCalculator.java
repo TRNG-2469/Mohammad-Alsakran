@@ -1,4 +1,4 @@
-package Week2.Monday.Exercises;
+package week2.Monday.Exercises;
 
 public class StringCalculator {
     public int add(String input) {

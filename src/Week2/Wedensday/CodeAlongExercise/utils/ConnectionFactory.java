@@ -1,4 +1,4 @@
-package Week2.CodeAlongExercise.utils;// ConnectionFactory.java
+package Week2.Wedensday.CodeAlongExercise.utils;// ConnectionFactory.java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

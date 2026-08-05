@@ -1,4 +1,4 @@
-package Week2.CodeAlongExercise;
+package Week2.Wedensday.CodeAlongExercise;
 
 import java.sql.*;
 
